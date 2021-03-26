@@ -6,6 +6,7 @@ const datosDePega=[
 {name:'Tunante'}
 ]
 
+// Ruta GET para devolver todos los usuarios de pega
 app.get('/users',function(req,res){
 	res.json({
 		success:true,
@@ -14,6 +15,16 @@ app.get('/users',function(req,res){
 	})
 })
 
+app.get('/users/:id',function(req,res){
+	console.log(req.params.id)
+	res.json({
+		success:true,
+		message: 'Pescamos un usuario!',
+		usr: req.params.id
+	})
+})
+
+//Levantamos el server
 app.listen(8000,function(){
 	console.log("Servidor furrulando!")
 })
